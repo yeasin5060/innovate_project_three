@@ -1,0 +1,114 @@
+$maincolor:rgba(28, 30, 83, 0.219);
+$whitecolor:#FFFF;
+$darkbule:#282938;
+$buttoncolor:#FCD980;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+a{
+    text-decoration: none;
+    display: inline-block;
+}
+ul,ol{
+    list-style: none;
+}
+h1 h2 h3 h4 h5 h6 p{
+    line-height: 0.8;
+}
+.container{
+    width: 1280px;
+    margin: 0 auto;
+}
+@mixin pera{
+    font-size: 16px;
+    font-weight: 400;
+    color: $darkbule;
+    text-transform: capitalize;
+    line-height: 140%;
+}
+@mixin common_btn{
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    color: $whitecolor;
+    padding: 16px 48px;
+    border: 2px solid $darkbule;
+    border-radius: 41px;
+    text-transform: capitalize;
+    transition: all linear 0.3s;
+    &:hover{
+        color: $whitecolor;
+        background-color: $buttoncolor;
+        border: none;
+    }
+}
+#navbar{
+    padding: 32px 0;
+    background: #FCD980;
+    .nav_wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo{
+            width: 20%;
+            height: 28px;
+            text-align: left;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .menu{
+            width: 60%;
+            margin-right: 48px;
+            ul{
+                display: flex;
+                justify-content: right;
+                align-items: center;
+                column-gap: 32px;
+                li{
+                    a{
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: $whitecolor;
+                        cursor: pointer;
+                        text-transform: capitalize;
+                        line-height: 140%;
+                        transition: all linear 0.3s;
+                        position: relative;
+                        &:hover{
+                            color: $darkbule;
+                        }
+                        &::after{
+                            position: absolute;
+                            content: "";
+                            width: 0;
+                            height: 1px;
+                            background: $darkbule;
+                            left: 0;
+                            bottom: -8px;
+                            transition: all linear 0.3s;
+                        }
+                        &:hover::after{
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+        .nav_btn{
+            display: flex;
+            align-items: center;
+            width: 20%;
+            text-align: right;
+            a{
+                @include common_btn;
+            }
+        }
+    }
+}
